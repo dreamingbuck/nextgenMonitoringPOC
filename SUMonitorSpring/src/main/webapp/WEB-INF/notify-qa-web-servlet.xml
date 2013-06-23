@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context" xmlns:util="http://www.springframework.org/schema/util"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+ http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd
+ http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+ http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <!-- This should be the highest level package name of your project -->
+    <context:component-scan base-package="edu.stanford.notify" />
+
+    <!-- This mean we want to do validation with @Annotations -->
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+
+    <!-- Makes the @Controller annotations work -->
+    <mvc:annotation-driven  validator="validator" />
+
+    <!-- This says we are going to use .jsps for the view, they can be found in /WEB-INF/JSP and they will end with .jsp -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!-- ########################################## Application specific configuration is below ########################################## -->
+
+    <!-- This replace ${} placholders with properties -->
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="properties" ref="appProperties" />
+    </bean>
+    <!-- This defines our propertis files -->
+    <bean id="appProperties" class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>/WEB-INF/application.properties
+                </value>
+            </list>
+        </property>
+    </bean>
+    <!-- Create a remctl connection to use with notify-qa This creates a new connection for each request. -->
+    <!-- <bean id="devNullEmailRemctlClient" class="org.eyrie.remctl.client.SimpleRemctlClient" depends-on="remctlPreqs"> 
+        <constructor-arg value="devnull-dev.stanford.edu" /> </bean> -->
+
+    <!-- Create a pooled remctl connection for improved performance -->
+    <bean id="notifyRemctlFactory" class="org.eyrie.remctl.client.RemctlConnectionFactory">
+        <property name="hostname" value="${notify.hostname}" />
+    </bean>
+
+    <bean id="notifyRemctlConnectionPool" class="org.eyrie.remctl.client.RemctlConnectionPool">
+        <constructor-arg ref="notifyRemctlFactory" />
+    </bean>
+
+    <bean id="notifyRemctlClient" class="org.eyrie.remctl.client.PooledRemctlClient">
+        <constructor-arg ref="notifyRemctlConnectionPool" />
+    </bean>
+
+    <!-- We want to load this from the class path. The built in Java config loader seems too stupid to load from the class 
+        path, so we do the load and then find the file path -->
+    <bean id="jaasConfig" class="org.springframework.core.io.ClassPathResource">
+        <constructor-arg value="jaas.config" />
+    </bean>
+
+    <!-- Define the JAAS stuff for kerberos. This could also be defined with in Java options -->
+    <bean id="remctlPreqs" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetObject" value="#{@systemProperties}" />
+        <property name="targetMethod" value="putAll" />
+        <property name="arguments">
+            <!-- The new Properties -->
+            <util:properties>
+                <prop key="java.security.auth.login.config">#{jaasConfig.file.canonicalPath}</prop>
+            </util:properties>
+        </property>
+    </bean>
+</beans>

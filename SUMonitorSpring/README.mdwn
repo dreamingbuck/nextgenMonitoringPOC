@@ -1,0 +1,89 @@
+# Overview
+
+`notify-qa-web` is an example web application that shows how Spring MVC and other
+tools can be used to create a Java web application. The tool provides a web front end wrapper
+around the `notify-qa` remctl command on `devnull`. This illustrates how to interact and write tests in
+a Java application when you rely on an external service.
+
+# Running the web application
+
+*Prerequisites*: You have STS or Eclipse (with the maven plugin) installed and
+you have configured an embedded servlet container/server ( such as Tomcat ) within STS.
+
+1. Import a maven project.
+
+    File->Import->Existing Maven Projects
+    
+1. Once the project builds you can right click and
+
+    Run as->Run on Server
+    
+ 1. Verify the webapp is running. Visit
+ 
+    http://localhost:8080/notify-qa-web/
+    
+and you should see a table of data.
+
+# Project layout
+
+The project follows the standard Maven layout
+
+    src/main/java: here is your code
+    src/main/resources: here is resources (logging configuration, etc) for a project
+    src/main/webapp: the webapp app and related resources (.jsps, css, spring configuration, etc)
+    src/test/java: here are your tests
+    src/test/resources: here are test resources.
+    
+# Spring MVC Basics
+
+Spring MVC consists of a dispatcher servlet that routes all incoming requests.
+It routes requests to one of your controllers that can return data (such as JSON) directly or
+it can build a model and return the name of a view to the dispatcher.
+
+The dispatcher will then use the view name to find the correct technology (.jsp, ThymeLeaf, JSF, etc) and template
+to render the view, and respond to the client with the rendered view.
+
+## A Controller
+
+The `HomeController` is our controller. The `@Controller` annotation on the class tells Spring that we want this to be a 
+controller. To tell Spring where to route requests you use the `@RequestMapping` annotation and you can define things
+like the path, query parameters, accept headers, etc. Spring will look at incoming request and find the @RequestMapping 
+that best matches that request and then call the method that the annotation is on.
+
+In `HomeController` we use `@RequestMapping(/)` to route load the home page. The homepage request takes an
+optional query parameter to use in forming  a search.
+
+The controller uses `NotifyQaManager` to do all the real work of making remctl calls and parsing the results. This separation makes it easier to test the controller
+and the business layer.
+
+## Configuring the dispatcher servlet
+
+The Spring dispatcher servlet is configured in web.xml. By default it looks for a Spring configuration file
+called [servlet-name]-servlet.xml on your class path. Our config file is `notify-qa-web-servlet.xml`
+In that file we tell Spring MVC to look in our Java packages for Spring beans and controllers. We
+also tell it where our .jsp files are.
+
+# Testing
+
+## Controller Testing
+
+To accurately unit test a controller you need to make an request, let the servlet container process the request and then 
+assert on the result. This is often done by deploying a webapp and testing with Selenium. These tests are generally quite
+slow and perform a full integration test of the app, rather then a unit test of the controller.
+
+The `spring-mvc-test` lets us build a mock MVC context around a controller and then issue GETs, etc and assert on
+the results. The `HomeControllerTest` shows examples of this being done, and Spring's MVC show case project has more examples.
+Test written this way run fast and can exercise more edge cases and error conditions then a full integration test can.
+
+## Business Layer Testing
+
+`NotifyQaManager` is our business/service layer. It makes remctl calls and parses the results.
+We want to be able to unit test `NotifyQaManager` without it making real remctl calls to a real service.
+To do this we stub out the behavior of a remctl client using mockito. We define what behavior we
+want our stubbed call to have and then write unit tests. Test written this way run fast and don't rely
+on the external service being in a predetermined state.
+
+
+
+
+
