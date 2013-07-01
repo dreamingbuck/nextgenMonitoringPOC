@@ -1,0 +1,65 @@
+{
+"name":"smarts-dev1",
+"event":"Host Down",
+"state":"Alert state2",
+"severity":1,
+"owner":"mldart",
+"count":1,
+"source":"Nagios-email",
+"category":"some category2",
+"text":"Ping failed",
+"timestamp":"2013-06-16 06:00",
+"clearOnAck":false"
+}
+{
+"name":"SHC Cluster",
+"event":"Phones Jumped",
+"state":"Alert state2",
+"severity":2,
+"owner":"sunia",
+"count":1,
+"source":"VOIP-email",
+"category":"some category2",
+"text":"phones jumped by 10000, switchboard overloaded",
+"timestamp":"2013-06-12 07:00",
+"clearOnAck":false"
+}
+{
+"name":"ITOC door lock",
+"event":"Panel Tamper",
+"state":"Alert state2",
+"severity":3,
+"owner":"annap",
+"count":1,
+"source":"Aces-email",
+"category":"some category2",
+"text":"someone opened panel",
+"timestamp":"2013-06-18 13:00",
+"clearOnAck":false"
+}
+{
+"name":"Campus",
+"event":"Student Body missing",
+"state":"Alert state2",
+"severity":4,
+"owner":"clundin",
+"count":1,
+"source":"Student-email",
+"category":"some category2",
+"text":"commencement aftereffect?!",
+"timestamp":"2013-06-17 06:00",
+"clearOnAck":false"
+}
+{
+"name":"Amcom Paging",
+"event":"Pages Queued",
+"state":"Alert state2",
+"severity":5,
+"owner":"patyoung",
+"count":1,
+"source":"Amcom-email",
+"category":"some category2",
+"text":"1 page queued.  What's the big deal?",
+"timestamp":"2013-06-16 23:00",
+"clearOnAck":false"
+}

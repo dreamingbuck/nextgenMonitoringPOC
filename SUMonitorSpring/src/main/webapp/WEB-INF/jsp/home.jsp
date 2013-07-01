@@ -9,7 +9,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<title>Notify QA</title>
+<title>Notify QA -&gt; SUMonitorSpring</title>
 
 <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
 
