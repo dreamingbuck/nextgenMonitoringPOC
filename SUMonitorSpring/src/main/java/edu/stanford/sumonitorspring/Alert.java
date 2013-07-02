@@ -202,6 +202,21 @@ public class Alert implements java.io.Serializable {
 	}
 
 	/**
+	 * @return the timestamp
+	 */
+	public String getDate() {
+		return timestamp;
+	}
+
+	/**
+	 * @param timestamp
+	 *            the timestamp to set
+	 */
+	public void setDate(String timestamp) {
+		this.timestamp = timestamp;
+	}
+
+	/**
 	 * @return the clearOnAck
 	 */
 	public Boolean getClearOnAck() {

@@ -27,8 +27,8 @@
    <c:url var="link" value="/details/${row.id }"/>
     <a href="${link }"><c:out value="${row.id }"/></a>
    </datatables:column>
-   <datatables:column title="Sent" property="date" format="{0,date,MMM dd, yyyy hh:mm:ss}" />
-   <datatables:column title="Template" property="template" filterable="true" filterType="select" />
+   <datatables:column title="Event" property="event" />
+   <datatables:column title="Name" property="name" filterable="true" filterType="select" />
 </datatables:table>
 </div>
 

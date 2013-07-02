@@ -27,7 +27,7 @@ public class HomeController {
 
 	/** Our logging facility */
 	private static final Logger logger = LoggerFactory
-			.getLogger(HomeController.class);
+			.getLogger(new Throwable().getStackTrace()[0].getClassName());
 
 	/**
 	 * Manages our interaction with notify-qa
@@ -48,7 +48,7 @@ public class HomeController {
 	@RequestMapping("/")
 	public String loadHomePage(Model model,
 			@RequestParam(value = "q", required = false) String searchTerm) {
-		logger.info("***Entering loadHomePage...");
+		logger.info("*********************Entering loadHomePage..........................");
 		// List<MessageInfo> results = null;
 		List<Alert> results = null;
 		if (StringUtils.isBlank(searchTerm)) {

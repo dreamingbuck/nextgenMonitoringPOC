@@ -27,6 +27,7 @@ public class AlertManager implements java.io.Serializable {
 
 	// need a public no arg constructor since Spring requires beans!
 	public AlertManager() {
+		logger.debug("no arg constructor entered...");
 	}
 
 	/**
@@ -46,6 +47,7 @@ public class AlertManager implements java.io.Serializable {
 	}
 
 	public List<Alert> getInstances() {
+		logger.debug("getInstances entered...");
 		try {
 			instances.clear();
 			Gson gson = new GsonBuilder().create();
