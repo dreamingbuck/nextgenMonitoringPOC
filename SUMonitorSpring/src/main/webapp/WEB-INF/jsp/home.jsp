@@ -21,13 +21,19 @@
  <input id="q" name="q" value="${param.q}"/>
 </form>
 
-<div id="content" style="width:800px">
+<div id="content">
 <datatables:table   cdn="true" id="results" data="${results}" filter="true" row="row" appear="fadein,800">
    <datatables:column title="Id" >
    <c:url var="link" value="/details/${row.id }"/>
     <a href="${link }"><c:out value="${row.id }"/></a>
    </datatables:column>
+      <datatables:column title="Sev" property="severity" />
+   <datatables:column title="Owner" property="owner" />
+   <datatables:column title="Name" property="event" />
    <datatables:column title="Event" property="event" />
+   <datatables:column title="Text" property="text" />
+   <datatables:column title="Source" property="source" />
+   <datatables:column title="Timestamp" property="timestamp" />
    <datatables:column title="Name" property="name" filterable="true" filterType="select" />
 </datatables:table>
 </div>
