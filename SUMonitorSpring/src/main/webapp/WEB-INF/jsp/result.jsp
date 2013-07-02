@@ -46,7 +46,7 @@ table {
 }
 
 tr {
-	background-color: purple;
+	background-color: #8c1515;
 }
 
 tr.header {
@@ -73,7 +73,7 @@ tr.sev5 {
 	background-color: green;
 }
 </style>
-	<link href="https://www.stanford.edu/su-identity/css/su-identity.css"
+<!-- 	<link href="https://www.stanford.edu/su-identity/css/su-identity.css" -->
 		rel="stylesheet">
 		<link
 			href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700"

@@ -87,6 +87,10 @@ td.sev5 {
 				src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
 </head>
 <body>
+	<img
+		src="http://identity.stanford.edu/overview/images/emblems/SU_BlockStree_2color.png"
+		alt="Stanford University" />
+	<h1>Stanford NextGen Monitoring (JSP) ${pageContext.request.servletPath}</h1>
 	<!-- Use c:out to display messages. This will avoid XSS attacks -->
 	<table border="1">
 		<tr>

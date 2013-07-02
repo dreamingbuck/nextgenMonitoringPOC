@@ -44,7 +44,7 @@ table {
 }
 
 tr {
-	background-color: purple;
+	background-color: #8c1515;
 }
 
 tr.header {
@@ -117,15 +117,17 @@ tr.sev5 {
 	<div id="content">
 		<datatables:table cdn="true" id="results" data="${results}"
 			filter="true" row="row" appear="fadein,800">
-			<datatables:column title="Id">
-				<c:url var="link" value="/details/${row.id }" />
-				<a href="${link }"><c:out value="${row.id }" /></a>
-			</datatables:column>
 			<datatables:column title="Sev" property="severity" filterable="true" />
 			<datatables:column title="Owner" property="owner" filterable="true" />
-			<datatables:column title="Name" property="name" filterable="true" />
+			<datatables:column title="Name" property="name" filterable="true" >
+			<c:url var="link" value="https://netdb.stanford.edu/InfoNode?handle=${row.name}" />
+				<a href="${link }"><c:out value="${row.name}" /></a>
+			</datatables:column>
 			<datatables:column title="Event" property="event" filterable="true" />
-			<datatables:column title="Text" property="text" filterable="true" />
+			<datatables:column title="Headline" property="headline" filterable="true" >
+				<c:url var="link" value="/details/${row.id }" />
+				<a href="${link }"><c:out value="${row.headline }" /></a>
+			</datatables:column>
 			<datatables:column title="Source" property="source" filterable="true" />
 			<datatables:column title="Timestamp" property="timestamp"
 				filterable="true" />

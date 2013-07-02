@@ -1,5 +1,8 @@
 package edu.stanford.sumonitorspring;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Alert implements java.io.Serializable {
 
 	// private final Logger logger = Logger.getLogger(this.getClass());
@@ -9,6 +12,7 @@ public class Alert implements java.io.Serializable {
 	 * private static final Logger logger = Logger.getLogger(new Throwable()
 	 * .getStackTrace()[0].getClassName());
 	 */
+	private final static Pattern PATTERN = Pattern.compile("(^[^\\n]*)");
 	private String name;
 	private String event;
 	private String state;
@@ -229,6 +233,18 @@ public class Alert implements java.io.Serializable {
 	 */
 	public void setClearOnAck(Boolean clearOnAck) {
 		this.clearOnAck = clearOnAck;
+	}
+
+	/**
+	 * @return the headline
+	 */
+	public String getHeadline() {
+		Matcher m = PATTERN.matcher(text);
+		if (m.matches()) {
+			return m.group(0);
+		} else {
+			return text;
+		}
 	}
 
 	/**
