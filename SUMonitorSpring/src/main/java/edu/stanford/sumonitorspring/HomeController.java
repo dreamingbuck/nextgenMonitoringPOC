@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -73,14 +74,16 @@ public class HomeController {
 	 *            The model to send to the view
 	 * @return The name of the view to use in displaying the details
 	 */
-	/*
-	 * @RequestMapping("/details/{id}") public String
-	 * loadDetails(@PathVariable("id") long id, Model model) {
-	 * logger.info("Loading message {}", id); MessageDetails details =
-	 * this.loadDetails(id); // this will add our object and give it the name
-	 * 'messageDetails' model.addAttribute(details); // the name of the .jsp to
-	 * view return "details"; }
-	 */
+	@RequestMapping("/details/{id}")
+	public String loadDetails(@PathVariable("id") String id, Model model) {
+		logger.info("Loading alert {}", id);
+		// Alert alert = this.loadDetails(id);
+		Alert alert = this.manager.getAlert(id);
+		// this will add our object and give it the name 'messageDetails'
+		model.addAttribute(alert);
+		// the name of the .jsp to view
+		return "details";
+	}
 
 	/**
 	 * Load details on a messaged
@@ -97,9 +100,8 @@ public class HomeController {
 	 * 
 	 * @ResponseBody public MessageDetails loadDetails(@PathVariable("id") long
 	 * id) { logger.info("Loading message {}", id); return
-	 * this.alert.loadMessage(id); }
+	 * this.manager.loadMessage(id); }
 	 */
-
 	/**
 	 * Prepopulate the form for sending a template
 	 * 

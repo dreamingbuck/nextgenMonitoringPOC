@@ -46,6 +46,16 @@ public class AlertManager implements java.io.Serializable {
 		return getInstances();
 	}
 
+	public Alert getAlert(String id) {
+		for (Alert a : instances) {
+			if (id == a.getEvent()) {
+				return a;
+			}
+			return null;
+		}
+		return a;
+	}
+
 	public List<Alert> getInstances() {
 		logger.debug("getInstances entered...");
 		try {
