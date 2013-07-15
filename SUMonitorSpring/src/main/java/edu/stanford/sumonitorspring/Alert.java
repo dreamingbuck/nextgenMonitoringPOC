@@ -24,6 +24,7 @@ public class Alert implements java.io.Serializable {
 	private String text;
 	private String timestamp;
 	private Boolean clearOnAck;
+	private AuditLog auditLog;
 
 	// need a public no arg constructor since Spring requires beans!
 	public Alert() {
@@ -52,7 +53,8 @@ public class Alert implements java.io.Serializable {
 				+ "severity=" + severity + ", " + "count=" + count + ", "
 				+ "source=" + source + ", " + "category=" + category + ", "
 				+ "eventtext=" + text + ", " + "timestamp=" + timestamp + ", "
-				+ "clearOnAck=" + clearOnAck + "]";
+				+ "clearOnAck=" + clearOnAck + ", " + "auditLog=" + auditLog
+				+ "]";
 	}
 
 	/**
@@ -267,5 +269,20 @@ public class Alert implements java.io.Serializable {
 	 */
 	public String getId() {
 		return event;
+	}
+
+	/**
+	 * @return the auditLog
+	 */
+	public AuditLog getAuditLog() {
+		return auditLog;
+	}
+
+	/**
+	 * @param auditLog
+	 *            the auditLog to set
+	 */
+	public void setAuditLog(AuditLog auditLog) {
+		this.auditLog = auditLog;
 	}
 }

@@ -125,6 +125,10 @@ td.sev5 {
 			<th>Text</th>
 			<td><c:out value="${alert.text}" /></td>
 		</tr>
+				<tr>
+			<th>AuditLog</th>
+			<td><c:out value="${alert.auditLog}" /></td>
+		</tr>
 		<tr>
 			<th>Text2</th>
 			<td><textarea cols="100" rows="15" disabled="disabled">
