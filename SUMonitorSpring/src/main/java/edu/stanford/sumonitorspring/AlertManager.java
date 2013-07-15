@@ -1,6 +1,7 @@
 package edu.stanford.sumonitorspring;
 
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -12,7 +13,9 @@ import org.codehaus.jackson.JsonFactory;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Component;
 
-import edu.stanford.sumonitorspring.Alert;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonStreamParser;
 
 //Component tells spring to make an instance of this class. An instance is called a bean.
 @Component
@@ -70,6 +73,11 @@ public class AlertManager implements java.io.Serializable {
 	}
 
 	public List<Alert> getInstances() {
+		return getInstancesJackson(); // FIXME: hmmm GSON doesn't work
+										// anymore...
+	}
+
+	public List<Alert> getInstancesJackson() {
 		logger.debug("getInstances entered...");
 		try {
 			instances.clear();
@@ -149,4 +157,40 @@ public class AlertManager implements java.io.Serializable {
 		}
 		return instances;
 	}
+
+	public List<Alert> getInstancesGSON() {
+		logger.debug("getInstances entered...");
+		try {
+			instances.clear();
+			Gson gson = new GsonBuilder().create();
+
+			JsonStreamParser parser = new JsonStreamParser(new FileReader(
+					jsonFile));
+			while (parser.hasNext()) {
+				Alert o = gson.fromJson(parser.next(), Alert.class);
+				instances.add(o);
+				logger.debug("getting instance: System.out.println(o)");
+			}
+			/*
+			 * ListIterator<Alert> listIterator = instances.listIterator();
+			 * while (listIterator.hasNext()) {
+			 * System.out.println(listIterator.next()); }
+			 */
+			// Reading from file
+			// BufferedReader br = new BufferedReader(new FileReader(
+			// "test/alert.json"));
+			// Create Gson object
+			// Gson gson = new Gson();
+
+			// convert the json string back to java Object
+			// Alert obj = gson.fromJson(br, Alert.class);
+
+			// System.out.println(obj);
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return instances;
+	}
+
 }
