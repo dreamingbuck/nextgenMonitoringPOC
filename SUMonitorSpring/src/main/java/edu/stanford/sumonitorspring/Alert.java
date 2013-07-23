@@ -1,5 +1,7 @@
 package edu.stanford.sumonitorspring;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -25,6 +27,11 @@ public class Alert implements java.io.Serializable {
 	private String timestamp;
 	private Boolean clearOnAck;
 	private AuditLog auditLog;
+
+	// private List<String[]> auditLogTest = new ArrayList<String[]>();
+	private List<List<String>> auditLogTest = new ArrayList<List<String>>();
+
+	private List<AuditEntry> auditLogTest2 = new ArrayList<AuditEntry>();
 
 	// need a public no arg constructor since Spring requires beans!
 	public Alert() {
@@ -54,7 +61,8 @@ public class Alert implements java.io.Serializable {
 				+ "source=" + source + ", " + "category=" + category + ", "
 				+ "eventtext=" + text + ", " + "timestamp=" + timestamp + ", "
 				+ "clearOnAck=" + clearOnAck + ", " + "auditLog=" + auditLog
-				+ "]";
+				+ ", " + "auditLogTest=<" + auditLogTest + ">" + ", "
+				+ "auditLogTest2=<" + auditLogTest2 + ">" + "]";
 	}
 
 	/**
@@ -284,5 +292,51 @@ public class Alert implements java.io.Serializable {
 	 */
 	public void setAuditLog(AuditLog auditLog) {
 		this.auditLog = auditLog;
+	}
+
+	/**
+	 * @return the auditLogTest
+	 */
+	/*
+	 * public List<String[]> getAuditLogTest() { return auditLogTest; }
+	 */
+
+	/**
+	 * @return the auditLogTest2
+	 */
+	public List<AuditEntry> getAuditLogTest2() {
+		return auditLogTest2;
+	}
+
+	/**
+	 * @param auditLogTest
+	 *            the auditLogTest to set
+	 */
+	/*
+	 * public void setAuditLogTest(List<String> auditLogTest) {
+	 * this.auditLogTest = auditLogTest; }
+	 */
+
+	/**
+	 * @param auditLogTest2
+	 *            the auditLogTest2 to set
+	 */
+	public void setAuditLogTest2(List<AuditEntry> auditLogTest2) {
+		this.auditLogTest2 = auditLogTest2;
+	}
+
+	/**
+	 * @return the auditLogTest
+	 */
+	public List<List<String>> getAuditLogTest() {
+		return auditLogTest;
+	}
+
+	/**
+	 * @param auditLogTest
+	 *            the auditLogTest to set
+	 */
+	public void setAuditLogTest(List<List<String>> auditLogTest) {
+		this.auditLogTest = auditLogTest;
 	}
 }

@@ -18,6 +18,7 @@ body {
 h1,h2 {
 	text-align: center;
 }
+
 th {
 	text-align: right;
 }
@@ -90,8 +91,14 @@ td.sev5 {
 	<img
 		src="http://identity.stanford.edu/overview/images/emblems/SU_BlockStree_2color.png"
 		alt="Stanford University" />
-	<h1>Stanford NextGen Monitoring (JSP) ${pageContext.request.servletPath}</h1>
+	<h1>Stanford NextGen Monitoring (JSP)
+		${pageContext.request.servletPath}</h1>
 	<!-- Use c:out to display messages. This will avoid XSS attacks -->
+	<!-- probably need to do mod_jk stuff see http://webauth.stanford.edu/manual/mod/mod_webauth.html -->
+	> WEBAUTH_USER is
+	<%
+		out.print(request.getAttribute("WEBAUTH_USER"));
+	%>
 	<table border="1">
 		<tr>
 			<th>ID</th>
@@ -125,9 +132,13 @@ td.sev5 {
 			<th>Text</th>
 			<td><c:out value="${alert.text}" /></td>
 		</tr>
-				<tr>
+		<tr>
 			<th>AuditLog</th>
 			<td><c:out value="${alert.auditLog}" /></td>
+		</tr>
+		<tr>
+			<th>AuditLogTest</th>
+			<td><c:out value="${alert.auditLogTest}" /></td>
 		</tr>
 		<tr>
 			<th>Text2</th>

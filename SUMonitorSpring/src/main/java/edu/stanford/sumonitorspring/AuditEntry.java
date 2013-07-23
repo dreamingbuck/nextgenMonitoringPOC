@@ -20,6 +20,12 @@ public class AuditEntry {
 	public AuditEntry() {
 	}
 
+	public AuditEntry(String[] auditEntry) {
+		this.when = auditEntry[0];
+		this.who = auditEntry[1];
+		this.what = auditEntry[2];
+	}
+
 	/**
 	 * @param who
 	 * @param when

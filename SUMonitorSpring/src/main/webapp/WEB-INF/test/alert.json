@@ -46,9 +46,10 @@
 "count":1,
 "source":"Student-email",
 "category":"some category2",
-"text":"commencement aftereffect?!",
+"text":"commencement aftereffect?! <a href=\"http://www.stanford.edu\">http://www.stanford.edu</a>",
 "timestamp":"2013-06-17 06:00",
-"clearOnAck":"false"
+"clearOnAck":"false",
+"auditLogTest":[["when","who","what"],["when2","who2","what2"]]
 }
 {
 "name":"Amcom Paging",
