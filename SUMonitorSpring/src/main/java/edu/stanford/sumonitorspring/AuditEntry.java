@@ -46,7 +46,7 @@ public class AuditEntry {
 	 */
 	@Override
 	public String toString() {
-		return "\n" + when + ", " + who + ", " + what + "\n";
+		return when + ", " + who + ", " + what + "<br>";
 	}
 
 	/**

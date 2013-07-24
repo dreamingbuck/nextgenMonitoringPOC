@@ -93,7 +93,7 @@ td.sev5 {
 		alt="Stanford University" />
 	<h1>Stanford NextGen Monitoring (JSP)
 		${pageContext.request.servletPath}</h1>
-	<!-- Use c:out to display messages. This will avoid XSS attacks -->
+	<!-- Use c:out to display messages. This will avoid XSS attacks by escaping the XML -->
 	<!-- probably need to do mod_jk stuff see http://webauth.stanford.edu/manual/mod/mod_webauth.html -->
 	> WEBAUTH_USER is
 	<%
@@ -130,20 +130,36 @@ td.sev5 {
 		</tr>
 		<tr>
 			<th>Text</th>
-			<td><c:out value="${alert.text}" /></td>
+			<td>${alert.text}</td>
 		</tr>
 		<tr>
 			<th>AuditLog</th>
-			<td><c:out value="${alert.auditLog}" /></td>
+			<td>${alert.auditLog}"</td>
 		</tr>
 		<tr>
-			<th>AuditLogTest</th>
-			<td><c:out value="${alert.auditLogTest}" /></td>
+			<th>AuditLogTable</th>
+			<td>
+				<table border="1">
+					<tr>
+						<th>When</th>
+						<th>Who</th>
+						<th>What</th>
+					</tr>
+					<c:forEach var="auditEntry" items="${alert.auditLog.auditLog}">
+							<tr>
+								<td>${auditEntry.when}</td>
+								<td>${auditEntry.who}</td>
+								<td>${auditEntry.what}</td>
+							</tr>
+					
+					</c:forEach>
+				</table>
+			</td>
 		</tr>
 		<tr>
 			<th>Text2</th>
 			<td><textarea cols="100" rows="15" disabled="disabled">
-					<c:out value="${alert.text}" />
+					"${alert.text}
 				</textarea></td>
 		</tr>
 	</table>
