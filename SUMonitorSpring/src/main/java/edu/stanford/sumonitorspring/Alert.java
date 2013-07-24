@@ -1,5 +1,7 @@
 package edu.stanford.sumonitorspring;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -24,7 +26,7 @@ public class Alert implements java.io.Serializable {
 	private String text;
 	private String timestamp;
 	private Boolean clearOnAck;
-	private AuditLog auditLog;
+	private List<AuditEntry> auditLog = new ArrayList<AuditEntry>();
 
 	// need a public no arg constructor since Spring requires beans!
 	public Alert() {
@@ -272,18 +274,18 @@ public class Alert implements java.io.Serializable {
 	}
 
 	/**
-	 * @return the auditLog
-	 */
-	public AuditLog getAuditLog() {
-		return auditLog;
-	}
-
-	/**
 	 * @param auditLog
 	 *            the auditLog to set
 	 */
-	public void setAuditLog(AuditLog auditLog) {
+	public void setAuditLog(List<AuditEntry> auditLog) {
 		this.auditLog = auditLog;
+	}
+
+	/**
+	 * @return the auditLog
+	 */
+	public List<AuditEntry> getAuditLog() {
+		return auditLog;
 	}
 
 }

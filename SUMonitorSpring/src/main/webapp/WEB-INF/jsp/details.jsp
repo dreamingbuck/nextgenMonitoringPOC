@@ -145,7 +145,7 @@ td.sev5 {
 						<th>Who</th>
 						<th>What</th>
 					</tr>
-					<c:forEach var="auditEntry" items="${alert.auditLog.auditLog}">
+					<c:forEach var="auditEntry" items="${alert.auditLog}">
 							<tr>
 								<td>${auditEntry.when}</td>
 								<td>${auditEntry.who}</td>
