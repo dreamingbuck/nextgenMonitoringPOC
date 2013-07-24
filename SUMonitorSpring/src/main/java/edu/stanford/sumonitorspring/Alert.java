@@ -33,6 +33,8 @@ public class Alert implements java.io.Serializable {
 
 	private List<AuditEntry> auditLogTest2 = new ArrayList<AuditEntry>();
 
+	private AuditEntry auditEntry;
+
 	// need a public no arg constructor since Spring requires beans!
 	public Alert() {
 	}
@@ -62,7 +64,8 @@ public class Alert implements java.io.Serializable {
 				+ "eventtext=" + text + ", " + "timestamp=" + timestamp + ", "
 				+ "clearOnAck=" + clearOnAck + ", " + "auditLog=" + auditLog
 				+ ", " + "auditLogTest=<" + auditLogTest + ">" + ", "
-				+ "auditLogTest2=<" + auditLogTest2 + ">" + "]";
+				+ "auditEntry=<" + auditEntry + ">" + ", " + "auditLogTest2=<"
+				+ auditLogTest2 + ">" + "]";
 	}
 
 	/**
@@ -338,5 +341,20 @@ public class Alert implements java.io.Serializable {
 	 */
 	public void setAuditLogTest(List<List<String>> auditLogTest) {
 		this.auditLogTest = auditLogTest;
+	}
+
+	/**
+	 * @return the auditEntry
+	 */
+	public AuditEntry getAuditEntry() {
+		return auditEntry;
+	}
+
+	/**
+	 * @param auditEntry
+	 *            the auditEntry to set
+	 */
+	public void setAuditEntry(AuditEntry auditEntry) {
+		this.auditEntry = auditEntry;
 	}
 }

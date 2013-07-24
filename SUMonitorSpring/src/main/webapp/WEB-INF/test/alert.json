@@ -9,7 +9,8 @@
 "category":"some category2",
 "text":"Ping failed",
 "timestamp":"2013-06-16 06:00",
-"clearOnAck":"false"
+"clearOnAck":"false",
+"auditEntry":{"when":"when1","who":"who1","what":"what1"}
 }
 {
 "name":"SHC Cluster",
@@ -22,7 +23,8 @@
 "category":"some category2",
 "text":"phones jumped by 10000, switchboard overloaded",
 "timestamp":"2013-06-12 07:00",
-"clearOnAck":"false"
+"clearOnAck":"false",
+"auditLog":{"auditLog":[{"when":"when1","who":"who1","what":"what1"},{"when":"when2","who":"who2","what":"what2"}]}
 }
 {
 "name":"ITOC door lock",

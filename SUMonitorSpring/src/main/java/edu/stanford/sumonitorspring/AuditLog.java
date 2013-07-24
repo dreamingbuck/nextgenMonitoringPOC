@@ -45,7 +45,7 @@ public class AuditLog {
 	 */
 	@Override
 	public String toString() {
-		return "[" + auditLog + "]";
+		return "" + auditLog + ""; // FIXME: cast it!
 	}
 
 }
