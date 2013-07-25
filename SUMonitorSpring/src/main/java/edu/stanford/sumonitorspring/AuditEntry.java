@@ -3,6 +3,9 @@
  */
 package edu.stanford.sumonitorspring;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -10,7 +13,9 @@ import org.apache.log4j.Logger;
  * 
  */
 public class AuditEntry {
-	private String when;
+	private final static SimpleDateFormat TIMESTAMPFORMAT = new SimpleDateFormat(
+			"MM/dd/yyyy HH:mm:ss");
+	private Calendar when;
 	private String who;
 	private String what;
 
@@ -20,18 +25,12 @@ public class AuditEntry {
 	public AuditEntry() {
 	}
 
-	public AuditEntry(String[] auditEntry) {
-		this.when = auditEntry[0];
-		this.who = auditEntry[1];
-		this.what = auditEntry[2];
-	}
-
 	/**
 	 * @param who
 	 * @param when
 	 * @param what
 	 */
-	public AuditEntry(String when, String who, String what) {
+	public AuditEntry(Calendar when, String who, String what) {
 		logger.debug("AuditEntry constructor entered... when=" + when
 				+ ", who=" + who + ", what=" + what);
 		this.who = who;
@@ -65,21 +64,6 @@ public class AuditEntry {
 	}
 
 	/**
-	 * @return the when
-	 */
-	public String getWhen() {
-		return when;
-	}
-
-	/**
-	 * @param when
-	 *            the when to set
-	 */
-	public void setWhen(String when) {
-		this.when = when;
-	}
-
-	/**
 	 * @return the what
 	 */
 	public String getWhat() {
@@ -94,4 +78,22 @@ public class AuditEntry {
 		this.what = what;
 	}
 
+	/**
+	 * @return the when
+	 */
+	public Calendar getWhen() {
+		return when;
+	}
+
+	/**
+	 * @param when
+	 *            the when to set
+	 */
+	public void setWhen(Calendar when) {
+		this.when = when;
+	}
+
+	public String getPrintableWhen() {
+		return TIMESTAMPFORMAT.format(when.getTime());
+	}
 }

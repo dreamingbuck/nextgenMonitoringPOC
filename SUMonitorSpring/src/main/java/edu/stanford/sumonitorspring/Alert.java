@@ -1,6 +1,8 @@
 package edu.stanford.sumonitorspring;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -14,6 +16,8 @@ public class Alert implements java.io.Serializable {
 	 * private static final Logger logger = Logger.getLogger(new Throwable()
 	 * .getStackTrace()[0].getClassName());
 	 */
+	private final static SimpleDateFormat TIMESTAMPFORMAT = new SimpleDateFormat(
+			"MM/dd/yyyy HH:mm:ss");
 	private final static Pattern PATTERN = Pattern.compile("(^[^\\n]*)");
 	private String name;
 	private String event;
@@ -24,7 +28,7 @@ public class Alert implements java.io.Serializable {
 	private String source;
 	private String category;
 	private String text;
-	private String timestamp;
+	private Calendar timestamp;
 	private Boolean clearOnAck;
 	private List<AuditEntry> auditLog = new ArrayList<AuditEntry>();
 
@@ -34,7 +38,7 @@ public class Alert implements java.io.Serializable {
 
 	public Alert(String name, String event, String state, Integer severity,
 			String owner, Integer count, String source, String category,
-			String text, String timestamp, Boolean clearOnAck) {
+			String text, Calendar timestamp, Boolean clearOnAck) {
 		this.name = name;
 		this.event = event;
 		this.state = state;
@@ -195,36 +199,6 @@ public class Alert implements java.io.Serializable {
 	}
 
 	/**
-	 * @return the timestamp
-	 */
-	public String getTimestamp() {
-		return timestamp;
-	}
-
-	/**
-	 * @param timestamp
-	 *            the timestamp to set
-	 */
-	public void setTimestamp(String timestamp) {
-		this.timestamp = timestamp;
-	}
-
-	/**
-	 * @return the timestamp
-	 */
-	public String getDate() {
-		return timestamp;
-	}
-
-	/**
-	 * @param timestamp
-	 *            the timestamp to set
-	 */
-	public void setDate(String timestamp) {
-		this.timestamp = timestamp;
-	}
-
-	/**
 	 * @return the clearOnAck
 	 */
 	public Boolean getClearOnAck() {
@@ -286,6 +260,29 @@ public class Alert implements java.io.Serializable {
 	 */
 	public List<AuditEntry> getAuditLog() {
 		return auditLog;
+	}
+
+	/**
+	 * @param timestamp
+	 *            the timestamp to set
+	 */
+	public void setTimestamp(Calendar timestamp) {
+		this.timestamp = timestamp;
+		System.err.println("setTimestamp=" + timestamp);
+	}
+
+	/**
+	 * @return the timestamp
+	 */
+	public Calendar getTimestamp() {
+		// return timestamp.setTime(TIMESTAMPFORMAT.parse(timestamp)));
+		// return "" + timestamp.getTime();
+		System.err.println("getTimestamp=" + timestamp);
+		return timestamp;
+	}
+
+	public String getPrintableTimestamp() {
+		return TIMESTAMPFORMAT.format(timestamp.getTime());
 	}
 
 }

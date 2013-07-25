@@ -126,18 +126,14 @@ td.sev5 {
 		</tr>
 		<tr>
 			<th>Timestamp</th>
-			<td><c:out value="${alert.timestamp}" /></td>
+			<td><c:out value="${alert.printableTimestamp}" /></td>
 		</tr>
 		<tr>
 			<th>Text</th>
 			<td>${alert.text}</td>
 		</tr>
 		<tr>
-			<th>AuditLog</th>
-			<td>${alert.auditLog}"</td>
-		</tr>
-		<tr>
-			<th>AuditLogTable</th>
+			<th>Audit Log</th>
 			<td>
 				<table border="1">
 					<tr>
@@ -147,7 +143,7 @@ td.sev5 {
 					</tr>
 					<c:forEach var="auditEntry" items="${alert.auditLog}">
 							<tr>
-								<td>${auditEntry.when}</td>
+								<td>${auditEntry.printableWhen}</td>
 								<td>${auditEntry.who}</td>
 								<td>${auditEntry.what}</td>
 							</tr>
