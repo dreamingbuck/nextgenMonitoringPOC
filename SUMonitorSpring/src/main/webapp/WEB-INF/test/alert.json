@@ -1,4 +1,5 @@
 {
+"alertClass":"Host",
 "name":"smarts-dev1.stanford.edu",
 "event":"Host Down",
 "state":"Alert state2",
@@ -13,6 +14,7 @@
 "auditLog":[{"when":"2013-07-11","who":"who1","what":"what1"},{"when":"2013-07-12","who":"who2","what":"what2"}]
 }
 {
+"alertClass":"VoIP",
 "name":"SHC Cluster",
 "event":"Phones Jumped",
 "state":"Alert state2",
@@ -27,6 +29,7 @@
 "auditLog":[{"when":"2013-07-23T17:55:00.000","who":"who2","what":"Alert exploded!"},{"when":"2013-07-23T05:55:00.000","who":"Email","what":"Alert Created"}]
 }
 {
+"alertClass":"ACES",
 "name":"ITOC door lock",
 "event":"Panel Tamper",
 "state":"Alert state2",
@@ -37,9 +40,11 @@
 "category":"some category2",
 "text":"someone opened panel",
 "timestamp":"2013-06-18T13:00:00.000",
-"clearOnAck":"false"
+"clearOnAck":"false",
+"auditLog":[{"when":"2013-07-13","who":"who1","what":"what1"},{"when":"2013-07-15","who":"who2","what":"what2"}]
 }
 {
+"alertClass":"Student",
 "name":"Campus",
 "event":"Student Body missing",
 "state":"Alert state2",
@@ -54,6 +59,7 @@
 "auditLog":[{"when":"2013-07-13","who":"who1","what":"what1"},{"when":"2013-07-15","who":"who2","what":"what2"}]
 }
 {
+"alertClass":"Amcom",
 "name":"Amcom Paging",
 "event":"Pages Queued",
 "state":"Alert state2",
@@ -63,6 +69,38 @@
 "source":"Amcom-email",
 "category":"some category2",
 "text":"1 page queued.  What's the big deal?",
-"timestamp":"2013-06-16T23:00:00.000",
-"clearOnAck":"false"
+"auditLog":[{"when":"2013-07-13","who":"who1","what":"what1"},{"when":"2013-07-15","who":"who2","what":"what2"}]
+}
+{
+"alertClass":"Test",
+"name":"Test",
+"event":"Test:  testing",
+"category":"Stanford",
+"severity":"5",
+"source":"Test-Email",
+"clearOnAck":"true",
+"text":"Nothing much",
+"auditLog":[{"when":"2013-07-25T09:46:1374770795.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"Service-Alert",
+"name":"ITS-Alert-2263205",
+"event":"Intermittent access to accounts.stanford.edu",
+"category":"Stanford",
+"severity":"2",
+"source":"Service-Alert-Email",
+"clearOnAck":"false",
+"text":"",
+"auditLog":[{"when":"2013-07-25T09:57:1374771472.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"Service-Alert",
+"name":"ITS-Alert-2263021",
+"event":"Pinnacle and Card Services applications currently unavailable",
+"category":"Stanford",
+"severity":"2",
+"source":"Service-Alert-Email",
+"clearOnAck":"false",
+"text":"updated.  \n------=_Part_154629_18034833.1374769759338\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 7bit\n\nAccess it restored.  Both Pinnacle and Card Services applications are now available. \n\n\nSMARTS-ACTION: notify\nSMARTS-CLASS: Service-Alert\nSMARTS-NAME: ITS-Alert-2263021\nSMARTS-EVENT: Pinnacle and Card Services applications currently unavailable\nSMARTS-SEVERITY: 2\nSMARTS-CLEARMODE: none\nSMARTS-TYPE: momentary\nSMARTS-SOURCE: Service-Alert-Email \nSMARTS-HEADLINE: updated\n\n------=_Part_154629_18034833.1374769759338--",
+"auditLog":[{"when":"2013-07-25T10:34:1374773668.000","who":"Email","what":"alert created from email"}]
 }

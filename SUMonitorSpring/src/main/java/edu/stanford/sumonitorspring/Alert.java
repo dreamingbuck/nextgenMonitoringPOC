@@ -20,6 +20,7 @@ public class Alert implements java.io.Serializable {
 	private final static SimpleDateFormat TIMESTAMPFORMAT = new SimpleDateFormat(
 			"MM/dd/yyyy HH:mm:ss");
 	private final static Pattern PATTERN = Pattern.compile("(^[^\\n]*)");
+	private String alertClass;
 	private String name;
 	private String event;
 	private String state;
@@ -269,7 +270,7 @@ public class Alert implements java.io.Serializable {
 	 */
 	public void setTimestamp(Calendar timestamp) {
 		this.timestamp = timestamp;
-		System.err.println("setTimestamp=" + timestamp);
+		// System.err.println("setTimestamp=" + timestamp);
 	}
 
 	/**
@@ -283,7 +284,22 @@ public class Alert implements java.io.Serializable {
 	}
 
 	public String getPrintableTimestamp() {
-		return TIMESTAMPFORMAT.format(timestamp.getTime());
+		return TIMESTAMPFORMAT.format(auditLog.get(0).getWhen().getTime());
+	}
+
+	/**
+	 * @return the alertClass
+	 */
+	public String getAlertClass() {
+		return alertClass;
+	}
+
+	/**
+	 * @param alertClass
+	 *            the alertClass to set
+	 */
+	public void setAlertClass(String alertClass) {
+		this.alertClass = alertClass;
 	}
 
 }

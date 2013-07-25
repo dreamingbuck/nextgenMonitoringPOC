@@ -130,6 +130,10 @@ th.what,td.what {
 			<td><c:out value="${alert.owner}" /></td>
 		</tr>
 		<tr>
+			<th class="row">Class</th>
+			<td><c:out value="${alert.alertClass}" /></td>
+		</tr>
+				<tr>
 			<th class="row">Name</th>
 			<td><c:out value="${alert.name}" /></td>
 		</tr>
@@ -172,7 +176,7 @@ th.what,td.what {
 		<tr>
 			<th class="row">Text2</th>
 			<td><textarea cols="100" rows="15" disabled="disabled">
-					"${alert.text}
+					${alert.text}
 				</textarea></td>
 		</tr>
 	</table>

@@ -119,6 +119,7 @@ tr.sev5 {
 			filter="true" row="row" appear="fadein,800">
 			<datatables:column title="Sev" property="severity" filterable="true" />
 			<datatables:column title="Owner" property="owner" filterable="true" />
+			<datatables:column title="Class" property="alertClass" filterable="true" />
 			<datatables:column title="Name" property="name" filterable="true" >
 			<c:url var="link" value="https://netdb.stanford.edu/InfoNode?handle=${row.name}" />
 				<a href="${link }"><c:out value="${row.name}" /></a>
@@ -129,7 +130,7 @@ tr.sev5 {
 				<a href="${link }"><c:out value="${row.headline }" /></a>
 			</datatables:column>
 			<datatables:column title="Source" property="source" filterable="true" />
-			<datatables:column title="Timestamp" property="timestamp"
+			<datatables:column title="Timestamp" property="printableTimestamp"
 				filterable="true" />
 			<datatables:column title="Name" property="name" filterType="select" />
 		</datatables:table>

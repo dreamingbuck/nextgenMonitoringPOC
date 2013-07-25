@@ -45,7 +45,7 @@ public class AuditEntry {
 	 */
 	@Override
 	public String toString() {
-		return when + ", " + who + ", " + what + "<br>";
+		return this.getPrintableWhen() + ", " + who + ", " + what + "<br>";
 	}
 
 	/**
