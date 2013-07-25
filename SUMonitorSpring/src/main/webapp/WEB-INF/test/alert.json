@@ -24,7 +24,7 @@
 "text":"phones jumped by 10000, switchboard overloaded",
 "timestamp":"2013-06-12",
 "clearOnAck":"false",
-"auditLog":[{"when":"2013-07-23T05:55:00.000","who":"who1","what":"what1"},{"when":"2013-07-23T17:55:00.000","who":"who2","what":"what2"}]
+"auditLog":[{"when":"2013-07-23T17:55:00.000","who":"who2","what":"Alert exploded!"},{"when":"2013-07-23T05:55:00.000","who":"Email","what":"Alert Created"}]
 }
 {
 "name":"ITOC door lock",

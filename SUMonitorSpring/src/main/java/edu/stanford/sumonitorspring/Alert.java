@@ -3,6 +3,7 @@ package edu.stanford.sumonitorspring;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,7 +31,7 @@ public class Alert implements java.io.Serializable {
 	private String text;
 	private Calendar timestamp;
 	private Boolean clearOnAck;
-	private List<AuditEntry> auditLog = new ArrayList<AuditEntry>();
+	private List<AuditEntry> auditLog = new LinkedList<AuditEntry>();
 
 	// need a public no arg constructor since Spring requires beans!
 	public Alert() {

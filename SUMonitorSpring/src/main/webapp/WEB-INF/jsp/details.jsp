@@ -19,10 +19,6 @@ h1,h2 {
 	text-align: center;
 }
 
-th {
-	text-align: right;
-}
-
 h1 {
 	font-size: 150%;
 }
@@ -37,9 +33,14 @@ table,th,td {
 }
 
 table {
-	width: 95%;
+	width: 100%;
 	border-collapse: collapse;
-	margin: 25px
+	table-layout:fixed;
+}
+
+table.outer {
+	width: 95%;
+	margin: 25px;
 }
 
 tr {
@@ -69,6 +70,23 @@ td.sev4 {
 td.sev5 {
 	background-color: green;
 }
+
+th.row {
+	text-align: right;
+	width: 7em;
+}
+
+th.when,td.when {
+	width: 10em;	
+}
+
+th.who,td.who {
+	width: 5em;
+}
+
+th.what,td.what {
+	
+}
 </style>
 	<link href="https://www.stanford.edu/su-identity/css/su-identity.css"
 		rel="stylesheet">
@@ -84,8 +102,7 @@ td.sev5 {
 			<!--[if IE 7]>
   <link rel="stylesheet" type="text/css" href="https://www.stanford.edu/su-identity/css/ie/ie7.css" />
 <![endif]-->
-			<script
-				src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js"></script>
 </head>
 <body>
 	<img
@@ -95,65 +112,65 @@ td.sev5 {
 		${pageContext.request.servletPath}</h1>
 	<!-- Use c:out to display messages. This will avoid XSS attacks by escaping the XML -->
 	<!-- probably need to do mod_jk stuff see http://webauth.stanford.edu/manual/mod/mod_webauth.html -->
-	> WEBAUTH_USER is
+	 WEBAUTH_USER is
 	<%
 		out.print(request.getAttribute("WEBAUTH_USER"));
 	%>
-	<table border="1">
+	<table class=outer border="1">
 		<tr>
-			<th>ID</th>
+			<th class="row">ID</th>
 			<td><c:out value="${alert.id}" /></td>
 		</tr>
 		<tr>
-			<th>Severity</th>
+			<th class="row">Severity</th>
 			<td class=sev${alert.severity}><c:out value="${alert.severity}" /></td>
 		</tr>
 		<tr>
-			<th>Owner</th>
+			<th class="row">Owner</th>
 			<td><c:out value="${alert.owner}" /></td>
 		</tr>
 		<tr>
-			<th>Name</th>
+			<th class="row">Name</th>
 			<td><c:out value="${alert.name}" /></td>
 		</tr>
 		<tr>
-			<th>Event</th>
+			<th class="row">Event</th>
 			<td><c:out value="${alert.event}" /></td>
 		</tr>
 		<tr>
-			<th>Source</th>
+			<th class="row">Source</th>
 			<td><c:out value="${alert.source}" /></td>
 		</tr>
 		<tr>
-			<th>Timestamp</th>
+			<th class="row">Timestamp</th>
 			<td><c:out value="${alert.printableTimestamp}" /></td>
 		</tr>
 		<tr>
-			<th>Text</th>
+			<th class="row">Text</th>
 			<td>${alert.text}</td>
 		</tr>
 		<tr>
-			<th>Audit Log</th>
+			<th class="row">Audit Log</th>
 			<td>
 				<table border="1">
 					<tr>
-						<th>When</th>
-						<th>Who</th>
-						<th>What</th>
+						<th class="when">When</th>
+						<th class="who">Who</th>
+						<th class="what">What</th>
 					</tr>
 					<c:forEach var="auditEntry" items="${alert.auditLog}">
-							<tr>
-								<td>${auditEntry.printableWhen}</td>
-								<td>${auditEntry.who}</td>
-								<td>${auditEntry.what}</td>
-							</tr>
-					
+						<tr>
+							<td class="when">${auditEntry.printableWhen}</td>
+							<td class="who">${auditEntry.who}</td>
+							<td class="what">${auditEntry.what}</td>
+						</tr>
+
 					</c:forEach>
 				</table>
 			</td>
 		</tr>
 		<tr>
-			<th>Text2</th>
+			<th class="row">Text2</th>
 			<td><textarea cols="100" rows="15" disabled="disabled">
 					"${alert.text}
 				</textarea></td>
