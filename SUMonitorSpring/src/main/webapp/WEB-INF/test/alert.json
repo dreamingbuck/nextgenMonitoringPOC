@@ -104,3 +104,179 @@
 "text":"updated.  \n------=_Part_154629_18034833.1374769759338\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 7bit\n\nAccess it restored.  Both Pinnacle and Card Services applications are now available. \n\n\nSMARTS-ACTION: notify\nSMARTS-CLASS: Service-Alert\nSMARTS-NAME: ITS-Alert-2263021\nSMARTS-EVENT: Pinnacle and Card Services applications currently unavailable\nSMARTS-SEVERITY: 2\nSMARTS-CLEARMODE: none\nSMARTS-TYPE: momentary\nSMARTS-SOURCE: Service-Alert-Email \nSMARTS-HEADLINE: updated\n\n------=_Part_154629_18034833.1374769759338--",
 "auditLog":[{"when":"2013-07-25T10:34:1374773668.000","who":"Email","what":"alert created from email"}]
 }
+{
+"alertClass":"Service-Alert",
+"name":"ITS-Alert-2263457",
+"event":"Password Propagation Delays",
+"category":"Stanford",
+"severity":"1",
+"source":"Service-Alert-Email",
+"clearOnAck":"false",
+"text":"created.  \n------=_Part_155878_7357749.1374775372551\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 7bit\n\nWe are experiencing up to 3 hour delays in password propagation into Active Directory due to load. Engineers are monitoring and investigating the issue. \n\n\nSMARTS-ACTION: notify\nSMARTS-CLASS: Service-Alert\nSMARTS-NAME: ITS-Alert-2263457\nSMARTS-EVENT: Password Propagation Delays\nSMARTS-SEVERITY: 1\nSMARTS-CLEARMODE: none\nSMARTS-TYPE: momentary\nSMARTS-SOURCE: Service-Alert-Email \nSMARTS-HEADLINE: created\n------=_Part_155878_7357749.1374775372551--",
+"auditLog":[{"when":"2013-07-25T11:05:1374775506.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"ACES",
+"name":"Campus_WR-08-050C-1.1-I-0047-N0STOR1",
+"event":"Panel Communication",
+"category":"Stanford",
+"severity":"2",
+"source":"ACES-Email",
+"clearOnAck":"false",
+"text":"Title:          Communications Lost\nService:        Campus WR-08-050C-1.1-I-0047-N0STOR1\nType:           Panel Communication\nStart time:     11:50:28 AM 7/25/2013\nStop time:      ongoing\nWho's affected: Other\nIncident id:    None\nRemedy INC#:    None\nContact:        appsupport@lists.stanford.edu\nSubmitter:      LNL-APP-PRD Application",
+"auditLog":[{"when":"2013-07-25T11:50:1374778234.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"ACES",
+"name":"Campus_WR-08-050C-1.1-I-0047-N0STOR1",
+"event":"Panel Communication",
+"category":"Stanford",
+"severity":"2",
+"source":"ACES-Email",
+"clearOnAck":"false",
+"text":"Title:          Communications Restored\nService:        Campus WR-08-050C-1.1-I-0047-N0STOR1\nType:           Panel Communication\nStart time:     11:50:42 AM 7/25/2013\nStop time:      ongoing\nWho's affected: Other\nIncident id:    None\nRemedy INC#:    None\nContact:        appsupport@lists.stanford.edu\nSubmitter:      LNL-APP-PRD Application",
+"auditLog":[{"when":"2013-07-25T11:51:1374778295.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"Service-Alert",
+"name":"ITS-Alert-2263457",
+"event":"Password Propagation Delays",
+"category":"Stanford",
+"severity":"2",
+"source":"Service-Alert-Email",
+"clearOnAck":"false",
+"text":"updated.  \n------=_Part_156434_10458973.1374778384667\nContent-Type: text/plain; charset=UTF-8\nContent-Transfer-Encoding: 7bit\n\nThe password propagation delay has been isolated to Windows dependent applications, such as Exchange, VPN, etc. While the password propagation delay is ongoing, users can try using their old password for accessing Windows applications. \n\n\nSMARTS-ACTION: notify\nSMARTS-CLASS: Service-Alert\nSMARTS-NAME: ITS-Alert-2263457\nSMARTS-EVENT: Password Propagation Delays\nSMARTS-SEVERITY: 2\nSMARTS-CLEARMODE: none\nSMARTS-TYPE: momentary\nSMARTS-SOURCE: Service-Alert-Email \nSMARTS-HEADLINE: updated\n\n------=_Part_156434_10458973.1374778384667--",
+"auditLog":[{"when":"2013-07-25T11:54:1374778485.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"ACES",
+"name":"Campus_WR-08-050C-1.1-I-0047-N0STOR1",
+"event":"Panel Communication",
+"category":"Stanford",
+"severity":"2",
+"source":"ACES-Email",
+"clearOnAck":"false",
+"text":"Title:          Communications Lost\nService:        Campus WR-08-050C-1.1-I-0047-N0STOR1\nType:           Panel Communication\nStart time:     12:00:48 PM 7/25/2013\nStop time:      ongoing\nWho's affected: Other\nIncident id:    None\nRemedy INC#:    None\nContact:        appsupport@lists.stanford.edu\nSubmitter:      LNL-APP-PRD Application",
+"auditLog":[{"when":"2013-07-25T12:01:1374778866.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"ACES",
+"name":"Campus_WR-08-050C-1.1-I-0047-N0STOR1",
+"event":"Panel Communication",
+"category":"Stanford",
+"severity":"2",
+"source":"ACES-Email",
+"clearOnAck":"false",
+"text":"Title:          Communications Restored\nService:        Campus WR-08-050C-1.1-I-0047-N0STOR1\nType:           Panel Communication\nStart time:     12:00:58 PM 7/25/2013\nStop time:      ongoing\nWho's affected: Other\nIncident id:    None\nRemedy INC#:    None\nContact:        appsupport@lists.stanford.edu\nSubmitter:      LNL-APP-PRD Application",
+"auditLog":[{"when":"2013-07-25T12:01:1374778866.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"VOIP",
+"name":"Campus-wech-cucsumoh01",
+"event":"CCM: Excessive Phone Drops",
+"category":"Stanford",
+"severity":"2",
+"source":"VoIPCisco-Email",
+"clearOnAck":"false",
+"text":"Phones dropped by 29.  \n29 phones dropped on CCM wech-cucsumoh01 cluster Campus\nWebpage: https://www.stanford.edu/group/networking/monitor/voip/dropevents/event.07-25-121807.html\n\nDate: Thu Jul 25 12:18:07 2013\nCall Manager: wech-cucsumoh01\nCluster:      Campus\nPhones Unregistered: 29     (last 120 seconds)\n\nStatus of directly connected switches:\n\nPhones registered/unregistered from Campus in last 120 seconds:\n PhoneName           CallMgr            Bldg                                     Switch                         Port       Phone#       User            HW              IP               Time        Event\n SEP00083031A8C1     wech-cucsumoh01    07-450 Gates Computer Science Bldg                                                 6507230009   ryep            00083031a8c1    172.28.89.200    12:17:08    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:17:08    wech-cucsumoh01    unregister\n SEP00083031A9E1     wech-cucsumoh01    07-450 Gates Computer Science Bldg                                                 6507258597   poohbear        00083031a9e1    172.28.89.31     12:16:59    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:16:59    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:17:01    wech-cucsusub01    register\n                                                                                                                                                                                         12:17:01    wech-cucsusub01    register\n                                                                                                                                                                                         12:17:43    wech-cucsusub01    unregister\n                                                                                                                                                                                         12:17:43    wech-cucsusub01    unregister\n                                                                                                                                                                                         12:17:43    wech-cucsumoh01    register\n                                                                                                                                                                                         12:17:43    wech-cucsumoh01    register\n SEP00083031A9FF     fors-cucsusub01    07-450 Gates Computer Science Bldg                                                 6507233027                   00083031a9ff    172.28.88.129    12:16:58    fors-cucsusub02    register\n                                                                                                                                                                                         12:16:58    fors-cucsusub02    register\n                                                                                                                                                                                         12:16:58    fors-cucsusub02    register\n                                                                                                                                                                                         12:16:58    fors-cucsusub02    register\n                                                                                                                                                                                         12:16:58    fors-cucsusub01    unregister\n                                                                                                                                                                                         12:16:58    fors-cucsusub01    unregister\n                                                                                                                                                                                         12:16:59    fors-cucsusub02    unregister\n                                                                                                                                                                                         12:16:59    fors-cucsusub02    unregister\n                                                                                                                                                                                         12:16:59    fors-cucsusub02    unregister\n                                                                                                                                                                                         12:16:59    fors-cucsusub02    unregister\n                                                                                                                                                                                         12:17:12    fors-cucsusub01    register\n                                                                                                                                                                                         12:17:12    fors-cucsusub01    register\n SEP00083031AA22     wech-cucsumoh01    07-450 Gates Computer Science Bldg                                                 6507254727   nick            00083031aa22    172.28.89.8      12:16:58    wech-cucsusub01    register\n                                                                                                                                                                                         12:16:58    wech-cucsusub01    register\n                                                                                                                                                                                         12:16:58    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:16:58    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:16:59    wech-cucsusub01    unregister\n                                                                                                                                                                                         12:16:59    wech-cucsusub01    unregister\n                                                                                                                                                                                         12:17:21    wech-cucsumoh01    register\n                                                                                                                                                                                         12:17:21    wech-cucsumoh01    register\n SEP00083031AB85     wech-cucsumoh01    07-450 Gates Computer Science Bldg                                                 6507253642   dill            00083031ab85    172.28.89.61     12:17:07    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:17:07    wech-cucsumoh01    unregister\n SEP0008308BC878     wech-cucsumoh01    07-450 Gates Computer Science Bldg                                                 6507236090   psyoung         0008308bc878    172.28.88.123    12:16:59    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:16:59    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:17:01    wech-cucsusub01    register\n                                                                                                                                                                                         12:17:01    wech-cucsusub01    register\n                                                                                                                                                                                         12:17:43    wech-cucsusub01    unregister\n                                                                                                                                                                                         12:17:43    wech-cucsusub01    unregister\n                                                                                                                                                                                         12:17:43    wech-cucsumoh01    register\n                                                                                                                                                                                         12:17:43    wech-cucsumoh01    register\n SEP002699ED6D66     wech-cucsumoh01    07-450 Gates Computer Science Bldg                                                 6507251585   sstang          002699ed6d66    172.28.90.29     12:17:09    wech-cucsumoh01    unregister\n                                                                                                               ",
+"auditLog":[{"when":"2013-07-25T12:18:1374779897.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"VOIP",
+"name":"Campus",
+"event":"Cluster: Excessive Phone Drops",
+"category":"Stanford",
+"severity":"1",
+"source":"VoIPCisco-Email",
+"clearOnAck":"false",
+"text":"Phones dropped by 34.  \n34 phones dropped on Campus\n\nWebpage: https://www.stanford.edu/group/networking/monitor/voip/dropevents/event.07-25-121807.html\n\nDate: Thu Jul 25 12:18:07 2013\nCall Manager: wech-cucsumoh01\nCluster:      Campus\nPhones Unregistered: 34     (last 120 seconds)\n\nStatus of directly connected switches:\n\nPhones registered/unregistered from Campus in last 120 seconds:\n PhoneName           CallMgr            Bldg                                     Switch                         Port       Phone#       User            HW              IP               Time        Event\n SEP00083031A8C1     wech-cucsumoh01    07-450 Gates Computer Science Bldg                                                 6507230009   ryep            00083031a8c1    172.28.89.200    12:17:08    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:17:08    wech-cucsumoh01    unregister\n SEP00083031A9E1     wech-cucsumoh01    07-450 Gates Computer Science Bldg                                                 6507258597   poohbear        00083031a9e1    172.28.89.31     12:16:59    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:16:59    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:17:01    wech-cucsusub01    register\n                                                                                                                                                                                         12:17:01    wech-cucsusub01    register\n                                                                                                                                                                                         12:17:43    wech-cucsusub01    unregister\n                                                                                                                                                                                         12:17:43    wech-cucsusub01    unregister\n                                                                                                                                                                                         12:17:43    wech-cucsumoh01    register\n                                                                                                                                                                                         12:17:43    wech-cucsumoh01    register\n SEP00083031A9FF     fors-cucsusub01    07-450 Gates Computer Science Bldg                                                 6507233027                   00083031a9ff    172.28.88.129    12:16:58    fors-cucsusub02    register\n                                                                                                                                                                                         12:16:58    fors-cucsusub02    register\n                                                                                                                                                                                         12:16:58    fors-cucsusub02    register\n                                                                                                                                                                                         12:16:58    fors-cucsusub02    register\n                                                                                                                                                                                         12:16:58    fors-cucsusub01    unregister\n                                                                                                                                                                                         12:16:58    fors-cucsusub01    unregister\n                                                                                                                                                                                         12:16:59    fors-cucsusub02    unregister\n                                                                                                                                                                                         12:16:59    fors-cucsusub02    unregister\n                                                                                                                                                                                         12:16:59    fors-cucsusub02    unregister\n                                                                                                                                                                                         12:16:59    fors-cucsusub02    unregister\n                                                                                                                                                                                         12:17:12    fors-cucsusub01    register\n                                                                                                                                                                                         12:17:12    fors-cucsusub01    register\n SEP00083031AA22     wech-cucsumoh01    07-450 Gates Computer Science Bldg                                                 6507254727   nick            00083031aa22    172.28.89.8      12:16:58    wech-cucsusub01    register\n                                                                                                                                                                                         12:16:58    wech-cucsusub01    register\n                                                                                                                                                                                         12:16:58    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:16:58    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:16:59    wech-cucsusub01    unregister\n                                                                                                                                                                                         12:16:59    wech-cucsusub01    unregister\n                                                                                                                                                                                         12:17:21    wech-cucsumoh01    register\n                                                                                                                                                                                         12:17:21    wech-cucsumoh01    register\n SEP00083031AB85     wech-cucsumoh01    07-450 Gates Computer Science Bldg                                                 6507253642   dill            00083031ab85    172.28.89.61     12:17:07    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:17:07    wech-cucsumoh01    unregister\n SEP0008308BC878     wech-cucsumoh01    07-450 Gates Computer Science Bldg                                                 6507236090   psyoung         0008308bc878    172.28.88.123    12:16:59    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:16:59    wech-cucsumoh01    unregister\n                                                                                                                                                                                         12:17:01    wech-cucsusub01    register\n                                                                                                                                                                                         12:17:01    wech-cucsusub01    register\n                                                                                                                                                                                         12:17:43    wech-cucsusub01    unregister\n                                                                                                                                                                                         12:17:43    wech-cucsusub01    unregister\n                                                                                                                                                                                         12:17:43    wech-cucsumoh01    register\n                                                                                                                                                                                         12:17:43    wech-cucsumoh01    register\n SEP002699ED6D66     wech-cucsumoh01    07-450 Gates Computer Science Bldg                                                 6507251585   sstang          002699ed6d66    172.28.90.29     12:17:09    wech-cucsumoh01    unregister\n                                                                                                                                          ",
+"auditLog":[{"when":"2013-07-25T12:18:1374779897.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"VOIP",
+"name":"Campus",
+"event":"Cluster: Excessive Phone Drops",
+"category":"Stanford",
+"severity":"4",
+"source":"VoIPCisco-Email",
+"clearOnAck":"false",
+"text":"34 phones recovered on Campus \n\nMore at Voip Monitoring Page: https://www.stanford.edu/group/networking/monitor/voip\n\n                   Cluster:  Campus\n                Last Check:  07-25-13 12:18\n             Current Check:  07-25-13 12:20\n       Original Alarm Date:  07-25-13 12:18\n            PreAlarm Count:  10269\n\n        Call Manager  Last Count   New Count  Change\n               TOTAL       10235       10269     34\n     fors-cucsupub01          11           9     -2\n     fors-cucsusub01        2287        2295      8\n     fors-cucsusub02        2048        2047     -1\n     wech-cucsumoh01        2469        2498     29\n     wech-cucsusub01        3420        3420      0\n\nSMARTS-ACTION: clear\nSMARTS-CLASS: VOIP\nSMARTS-NAME: Campus\nSMARTS-EVENT: Cluster: Excessive Phone Drops\nSMARTS-SOURCE: VoIPCisco-Email \n\nSmarts fields are parsed by Smarts to generate appropriate alerts.  For more detail, see \nhttps://www.stanford.edu/group/networking/monitor/smarts/smartsemail.html.",
+"auditLog":[{"when":"2013-07-25T12:20:1374780018.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"VOIP",
+"name":"Campus-wech-cucsumoh01",
+"event":"CCM: Phones jumped!",
+"category":"Stanford",
+"severity":"2",
+"source":"VoIPCisco-Email",
+"clearOnAck":"false",
+"text":"Phones recovered by 34.  \n29 phones recovered on CCM wech-cucsumoh01 (172.28.1.216) cluster Campus \n\nMore at Voip Monitoring Page: https://www.stanford.edu/group/networking/monitor/voip\n\n              Call Manager:  wech-cucsumoh01\n                Last Check:  07-25-13 12:18\n             Current Check:  07-25-13 12:20\n       Original Alarm Date:  07-25-13 12:18\n            PreAlarm Count:  2498\n\n        Call Manager  Last Count   New Count  Change\n               TOTAL       10235       10269     34\n     fors-cucsupub01          11           9     -2\n     fors-cucsusub01        2287        2295      8\n     fors-cucsusub02        2048        2047     -1\n     wech-cucsumoh01        2469        2498     29\n     wech-cucsusub01        3420        3420      0\n\nSMARTS-ACTION: notify\nSMARTS-CLASS: VOIP\nSMARTS-NAME: Campus-wech-cucsumoh01\nSMARTS-EVENT: CCM: Phones jumped!\nSMARTS-SEVERITY: 2\nSMARTS-CLEARMODE: none\nSMARTS-TYPE: momentary\nSMARTS-SOURCE: VoIPCisco-Email \nSMARTS-HEADLINE: Phones recovered by 34\n\nSmarts fields are parsed by Smarts to generate appropriate alerts.  For more detail, see \nhttps://www.stanford.edu/group/networking/monitor/smarts/smartsemail.html.",
+"auditLog":[{"when":"2013-07-25T12:20:1374780018.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"ACES",
+"name":"Campus_WR-08-050C-1.1-I-0047-N0STOR1",
+"event":"Panel Communication",
+"category":"Stanford",
+"severity":"2",
+"source":"ACES-Email",
+"clearOnAck":"false",
+"text":"Title:          Communications Lost\nService:        Campus WR-08-050C-1.1-I-0047-N0STOR1\nType:           Panel Communication\nStart time:     12:30:28 PM 7/25/2013\nStop time:      ongoing\nWho's affected: Other\nIncident id:    None\nRemedy INC#:    None\nContact:        appsupport@lists.stanford.edu\nSubmitter:      LNL-APP-PRD Application",
+"auditLog":[{"when":"2013-07-25T12:31:1374780669.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"ACES",
+"name":"Campus_WR-08-050C-1.1-I-0047-N0STOR1",
+"event":"Panel Communication",
+"category":"Stanford",
+"severity":"2",
+"source":"ACES-Email",
+"clearOnAck":"false",
+"text":"Title:          Communications Restored\nService:        Campus WR-08-050C-1.1-I-0047-N0STOR1\nType:           Panel Communication\nStart time:     12:30:40 PM 7/25/2013\nStop time:      ongoing\nWho's affected: Other\nIncident id:    None\nRemedy INC#:    None\nContact:        appsupport@lists.stanford.edu\nSubmitter:      LNL-APP-PRD Application",
+"auditLog":[{"when":"2013-07-25T12:31:1374780669.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"ACES",
+"name":"Campus_WR-08-050C-1.1-I-0047-N0STOR1",
+"event":"Panel Communication",
+"category":"Stanford",
+"severity":"2",
+"source":"ACES-Email",
+"clearOnAck":"false",
+"text":"Title:          Communications Lost\nService:        Campus WR-08-050C-1.1-I-0047-N0STOR1\nType:           Panel Communication\nStart time:     12:53:54 PM 7/25/2013\nStop time:      ongoing\nWho's affected: Other\nIncident id:    None\nRemedy INC#:    None\nContact:        appsupport@lists.stanford.edu\nSubmitter:      LNL-APP-PRD Application",
+"auditLog":[{"when":"2013-07-25T12:54:1374782040.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"ACES",
+"name":"Campus_WR-08-050C-1.1-I-0047-N0STOR1",
+"event":"Panel Communication",
+"category":"Stanford",
+"severity":"2",
+"source":"ACES-Email",
+"clearOnAck":"false",
+"text":"Title:          Communications Restored\nService:        Campus WR-08-050C-1.1-I-0047-N0STOR1\nType:           Panel Communication\nStart time:     12:55:43 PM 7/25/2013\nStop time:      ongoing\nWho's affected: Other\nIncident id:    None\nRemedy INC#:    None\nContact:        appsupport@lists.stanford.edu\nSubmitter:      LNL-APP-PRD Application",
+"auditLog":[{"when":"2013-07-25T12:55:1374782150.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"ACES",
+"name":"Campus_WR-08-050C-1.1-I-0047-N0STOR1",
+"event":"Panel Communication",
+"category":"Stanford",
+"severity":"2",
+"source":"ACES-Email",
+"clearOnAck":"false",
+"text":"Title:          Communications Lost\nService:        Campus WR-08-050C-1.1-I-0047-N0STOR1\nType:           Panel Communication\nStart time:     1:39:24 PM 7/25/2013\nStop time:      ongoing\nWho's affected: Other\nIncident id:    None\nRemedy INC#:    None\nContact:        appsupport@lists.stanford.edu\nSubmitter:      LNL-APP-PRD Application",
+"auditLog":[{"when":"2013-07-25T13:39:1374784771.000","who":"Email","what":"alert created from email"}]
+}
+{
+"alertClass":"ACES",
+"name":"Campus_WR-08-050C-1.1-I-0047-N0STOR1",
+"event":"Panel Communication",
+"category":"Stanford",
+"severity":"2",
+"source":"ACES-Email",
+"clearOnAck":"false",
+"text":"Title:          Communications Restored\nService:        Campus WR-08-050C-1.1-I-0047-N0STOR1\nType:           Panel Communication\nStart time:     1:39:48 PM 7/25/2013\nStop time:      ongoing\nWho's affected: Other\nIncident id:    None\nRemedy INC#:    None\nContact:        appsupport@lists.stanford.edu\nSubmitter:      LNL-APP-PRD Application",
+"auditLog":[{"when":"2013-07-25T13:40:1374784831.000","who":"Email","what":"alert created from email"}]
+}

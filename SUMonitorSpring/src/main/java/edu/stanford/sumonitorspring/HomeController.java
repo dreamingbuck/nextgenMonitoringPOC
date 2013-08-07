@@ -56,6 +56,7 @@ public class HomeController {
 			logger.info("Listing results");
 			// results = this.alert.listMessages();
 			results = this.manager.listAlerts();
+			this.manager.setInstancesJackson(); // FIXME: temp for testing
 		} /*
 		 * else { logger.info("Searching for {}", searchTerm); results =
 		 * this.alert.searchMessages(searchTerm); }
@@ -98,7 +99,7 @@ public class HomeController {
 	 * 
 	 * @ResponseStatus(HttpStatus.OK)
 	 * 
-	 * @ResponseBody public MessageDetails loadDetails(@PathVariable("id") long
+	 * @ResponseBody public MessageDetails loadDetails(@PathVariable("id") long/
 	 * id) { logger.info("Loading message {}", id); return
 	 * this.manager.loadMessage(id); }
 	 */

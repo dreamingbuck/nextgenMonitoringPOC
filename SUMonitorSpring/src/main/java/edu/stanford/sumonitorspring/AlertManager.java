@@ -1,15 +1,22 @@
 package edu.stanford.sumonitorspring;
 
+import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.JsonFactory;
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Component;
 
@@ -81,28 +88,6 @@ public class AlertManager implements java.io.Serializable {
 		logger.debug("getInstances entered...");
 		try {
 			instances.clear();
-			// Gson gson = new GsonBuilder().create();
-
-			/*
-			 * JsonStreamParser parser = new JsonStreamParser(new FileReader(
-			 * jsonFile));
-			 */
-
-			/*
-			 * ObjectMapper mapper = new ObjectMapper(); ObjectReader reader =
-			 * mapper.reader(SomeEntity.class); InputStream is = new
-			 * FileInputStream(new File(filePath)); for (SomeEntity entity :
-			 * reader.readValues(is)) { // do something with the object }
-			 */
-			// ObjectMapper jsonMapper = new ObjectMapper();
-			/*
-			 * ObjectMapper mapper = new ObjectMapper(); ObjectReader reader =
-			 * mapper.reader(Alert.class); InputStream is = new
-			 * FileInputStream(new File(jsonFile)); for (Object o :
-			 * reader.readValues(is)) { // do something with the object
-			 * logger.debug("got JSON instance..." + a); instances.add(a); }
-			 */
-			/**/
 
 			final InputStream in = new FileInputStream(jsonFile);
 			try {
@@ -120,42 +105,49 @@ public class AlertManager implements java.io.Serializable {
 				in.close();
 			}
 
-			// Iterator<User> it = mapper.readValues(json, User.class);
-			// Iterator<Alert> it = mapper.readValues(is, Alert.class);
-			/*
-			 * while (parser.hasNext()) {
-			 * logger.debug("getting JSON instance..."); //Alert a =
-			 * gson.fromJson(parser.next(), Alert.class); Alert a =
-			 * jsonMapper.readValues(new FileReader(jsonFile), Alert.class);
-			 * 
-			 * logger.debug("got JSON instance..." + a);
-			 * 
-			 * // FIXME temp for testing AuditLog auditLog = new AuditLog();
-			 * String who = "michael"; String what = "comment..."; String when =
-			 * "when"; AuditEntry auditEntry = new AuditEntry(when, who, what);
-			 * auditLog.addAuditLog(auditEntry); a.setAuditLog(auditLog);
-			 * instances.add(a); logger.debug("getting instance: " + a); }
-			 */
-			/*
-			 * ListIterator<Alert> listIterator = instances.listIterator();
-			 * while (listIterator.hasNext()) {
-			 * System.out.println(listIterator.next()); }
-			 */
-			// Reading from file
-			// BufferedReader br = new BufferedReader(new FileReader(
-			// "test/alert.json"));
-			// Create Gson object
-			// Gson gson = new Gson();
-
-			// convert the json string back to java Object
-			// Alert obj = gson.fromJson(br, Alert.class);
-
-			// System.out.println(obj);
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 		return instances;
+	}
+
+	public void setInstancesJackson() {
+		logger.debug("setInstances entered...");
+		ListIterator<Alert> listIterator = instances.listIterator();
+		ObjectMapper mapper = new ObjectMapper();
+
+		try {
+			final OutputStream out = new FileOutputStream(jsonFile + ".out"); // FIXME:
+																				// temp
+																				// .out
+																				// suffix
+																				// for
+																				// testing
+			try {
+				while (listIterator.hasNext()) {
+					Alert a = listIterator.next();
+
+					mapper.writeValue(out, a);
+				}
+			} catch (JsonGenerationException e) {
+				e.printStackTrace();
+			} catch (JsonMappingException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			} finally {
+				try {
+					out.close();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+
+		return;
 	}
 
 	public List<Alert> getInstancesGSON() {
