@@ -16,6 +16,7 @@ import java.util.ListIterator;
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.JsonFactory;
 import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.JsonGenerator;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.springframework.stereotype.Component;
@@ -35,7 +36,8 @@ public class AlertManager implements java.io.Serializable {
 	private final Logger logger = Logger.getLogger(new Throwable()
 			.getStackTrace()[0].getClassName());
 	private static List<Alert> instances = new ArrayList<Alert>();
-	private static final String jsonFile = "/home/michael/src/sumonitor-spring/SUMonitorSpring/src/main/webapp/WEB-INF/test/alert.json";
+	private static final File JSONFILE = new File(
+			"/home/michael/src/sumonitor-spring/SUMonitorSpring/src/main/webapp/WEB-INF/test/alert.json");
 
 	// need a public no arg constructor since Spring requires beans!
 	public AlertManager() {
@@ -89,7 +91,7 @@ public class AlertManager implements java.io.Serializable {
 		try {
 			instances.clear();
 
-			final InputStream in = new FileInputStream(jsonFile);
+			final InputStream in = new FileInputStream(JSONFILE);
 			try {
 				for (Iterator<Alert> it = new ObjectMapper().readValues(
 						new JsonFactory().createJsonParser(in), Alert.class); it
@@ -115,9 +117,10 @@ public class AlertManager implements java.io.Serializable {
 		logger.debug("setInstances entered...");
 		ListIterator<Alert> listIterator = instances.listIterator();
 		ObjectMapper mapper = new ObjectMapper();
+		mapper.configure(JsonGenerator.Feature.AUTO_CLOSE_TARGET, false);
 
 		try {
-			final OutputStream out = new FileOutputStream(jsonFile + ".out"); // FIXME:
+			final OutputStream out = new FileOutputStream(JSONFILE + ".out"); // FIXME:
 																				// temp
 																				// .out
 																				// suffix
@@ -126,8 +129,9 @@ public class AlertManager implements java.io.Serializable {
 			try {
 				while (listIterator.hasNext()) {
 					Alert a = listIterator.next();
+					System.err.println(a.getName() + "::" + a.getEvent());
 
-					mapper.writeValue(out, a);
+					mapper.defaultPrettyPrintingWriter().writeValue(out, a);
 				}
 			} catch (JsonGenerationException e) {
 				e.printStackTrace();
@@ -136,6 +140,7 @@ public class AlertManager implements java.io.Serializable {
 			} catch (IOException e) {
 				e.printStackTrace();
 			} finally {
+				System.err.println("Closing...");
 				try {
 					out.close();
 				} catch (IOException e) {
@@ -157,7 +162,7 @@ public class AlertManager implements java.io.Serializable {
 			Gson gson = new GsonBuilder().create();
 
 			JsonStreamParser parser = new JsonStreamParser(new FileReader(
-					jsonFile));
+					JSONFILE));
 			while (parser.hasNext()) {
 				Alert o = gson.fromJson(parser.next(), Alert.class);
 				instances.add(o);
