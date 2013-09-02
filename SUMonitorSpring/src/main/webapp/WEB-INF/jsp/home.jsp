@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="datatables"
 	uri="http://github.com/dandelion/datatables"%>
@@ -121,8 +122,15 @@ tr.sev5 {
 			<datatables:column title="Owner" property="owner" filterable="true" />
 			<datatables:column title="Class" property="alertClass" filterable="true" />
 			<datatables:column title="Name" property="name" filterable="true" >
-			<c:url var="link" value="https://netdb.stanford.edu/InfoNode?handle=${row.name}" />
-				<a href="${link }"><c:out value="${row.name}" /></a>
+				<c:choose>
+					<c:when test="${fn:endsWith(row.name,'.stanford.edu')}">
+						<c:url var="link" value="https://netdb.stanford.edu/InfoNode?handle=${row.name}" />
+						<a href="${link }"><c:out value="${row.name}" /></a>
+					</c:when>
+					<c:otherwise>
+						${row.name}
+					</c:otherwise>
+				</c:choose>
 			</datatables:column>
 			<datatables:column title="Event" property="event" filterable="true" />
 			<datatables:column title="Headline" property="headline" filterable="true" >
