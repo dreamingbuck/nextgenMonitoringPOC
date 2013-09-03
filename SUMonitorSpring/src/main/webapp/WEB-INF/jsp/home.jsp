@@ -141,6 +141,16 @@ tr.sev5 {
 			<datatables:column title="Timestamp" property="printableTimestamp"
 				filterable="true" />
 			<datatables:column title="Name" property="name" filterType="select" />
+			<datatables:column title="Action" >
+				<select name="action" size="1">
+					<option value="details">Get details</option>
+					<option value="audit">Audit Log...</option>
+					<option value="inMaint">Put In Maintenance</option>
+					<option value="ack">Acknowledge</option>
+					<option value="clear">Clear Symptoms</option>
+					<option value="own">Take Ownership</option>
+				</select>
+			</datatables:column>
 		</datatables:table>
 	</div>
 
