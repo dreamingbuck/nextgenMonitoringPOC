@@ -86,6 +86,15 @@ public class HomeController {
 		return "details";
 	}
 
+	@RequestMapping("/event/{id}")
+	public String performAction(@PathVariable("id") String id,
+			@ModelAttribute ActionForm form) {
+
+		logger.info("id {} form {}", id, form);
+
+		return "home";
+	}
+
 	/**
 	 * Load details on a messaged
 	 * 

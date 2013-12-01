@@ -32,6 +32,7 @@ public class Alert implements java.io.Serializable {
 	private String text;
 	private Calendar timestamp;
 	private Boolean clearOnAck;
+	private Boolean ack;
 	private List<AuditEntry> auditLog = new LinkedList<AuditEntry>();
 
 	// need a public no arg constructor since Spring requires beans!
@@ -40,7 +41,7 @@ public class Alert implements java.io.Serializable {
 
 	public Alert(String name, String event, String state, Integer severity,
 			String owner, Integer count, String source, String category,
-			String text, Calendar timestamp, Boolean clearOnAck) {
+			String text, Calendar timestamp, Boolean clearOnAck, Boolean ack) {
 		this.name = name;
 		this.event = event;
 		this.state = state;
@@ -52,6 +53,7 @@ public class Alert implements java.io.Serializable {
 		this.text = text;
 		this.timestamp = timestamp;
 		this.clearOnAck = clearOnAck;
+		this.ack = ack;
 	}
 
 	@Override
@@ -61,8 +63,8 @@ public class Alert implements java.io.Serializable {
 				+ "severity=" + severity + ", " + "count=" + count + ", "
 				+ "source=" + source + ", " + "category=" + category + ", "
 				+ "eventtext=" + text + ", " + "timestamp=" + timestamp + ", "
-				+ "clearOnAck=" + clearOnAck + ", " + "auditLog=" + "<"
-				+ auditLog + ">" + "]";
+				+ "clearOnAck=" + clearOnAck + ", " + "ack=" + ack + ", "
+				+ "auditLog=" + "<" + auditLog + ">" + "]";
 	}
 
 	/**
@@ -302,4 +304,22 @@ public class Alert implements java.io.Serializable {
 		this.alertClass = alertClass;
 	}
 
+	/**
+	 * @return the ack
+	 */
+	public Boolean getAck() {
+		return ack;
+	}
+
+	/**
+	 * @param ack
+	 *            the ack to set
+	 */
+	public void setAck(Boolean ack) {
+		if (ack == null)
+			this.ack = false;
+		else
+			this.ack = ack;
+
+	}
 }

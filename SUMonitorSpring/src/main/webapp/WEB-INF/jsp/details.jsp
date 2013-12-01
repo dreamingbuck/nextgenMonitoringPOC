@@ -130,6 +130,10 @@ th.what,td.what {
 			<td><c:out value="${alert.owner}" /></td>
 		</tr>
 		<tr>
+			<th class="row">Ack</th>
+			<td><c:out value="${alert.ack}" /></td>
+		</tr>
+		<tr>
 			<th class="row">Class</th>
 			<td><c:out value="${alert.alertClass}" /></td>
 		</tr>
