@@ -19,7 +19,7 @@ public class Alert implements java.io.Serializable {
 	 */
 	private final static SimpleDateFormat TIMESTAMPFORMAT = new SimpleDateFormat(
 			"MM/dd/yyyy HH:mm:ss");
-	private final static Pattern PATTERN = Pattern.compile("(^[^\\n]*)");
+	private final static Pattern PATTERN = Pattern.compile(".*");
 	private String alertClass;
 	private String name;
 	private String event;
@@ -222,9 +222,11 @@ public class Alert implements java.io.Serializable {
 	 */
 	public String getHeadline() {
 		Matcher m = PATTERN.matcher(text);
-		if (m.matches()) {
+		if (m.lookingAt()) {
+			System.err.println("pattern matched");
 			return m.group(0);
 		} else {
+			System.err.println("pattern didn't match");
 			return text;
 		}
 	}
